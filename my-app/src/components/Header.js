@@ -1,18 +1,19 @@
 import Nav from "./Nav.js";
 
-export default function Header({ className = "", ...props }) {
-  const cls = `site-header${className ? " " + className : ""}`;
+export default function Header() {
   return (
-    <header className={cls} {...props}>
-      <a href="/" className="logo">
-        <img
-          src="/Images/Logo.svg"    // put your logo in /public
-          alt="Little Lemon"
-          width="140"
-          height="auto"
-        />
-      </a>
-      <Nav />
+    <header className="site-header">
+        <div className="container header-inner">
+            <a href="/" className="logo">
+                <img
+                src="/Images/Logo.svg"    // put your logo in /public
+                alt="Little Lemon"
+                width="140"
+                height="auto"
+                />
+            </a>
+            <Nav />
+        </div>
     </header>
   );
 }

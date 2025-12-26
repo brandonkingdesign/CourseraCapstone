@@ -1,7 +1,6 @@
-export default function Nav({ className = "", ...props }) {
-  const cls = `site-nav${className ? " " + className : ""}`;
+export default function Nav() {
   return (
-    <nav className={cls} aria-label="Primary" {...props}>
+    <nav className="Nav" aria-label="Primary">
       <ul className="menu">
         <li><a href="/">Home</a></li>
         <li><a href="/about">About</a></li>

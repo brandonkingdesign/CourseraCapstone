@@ -1,8 +1,7 @@
-export default function Footer({ className = "", ...props }) {
-  const cls = `site-footer${className ? " " + className : ""}`;
+export default function Footer() {
   return (
     <footer class="site-footer">
-        <div class="footer-grid">
+        <div class="container footer-grid">
             {/* <!-- Brand / logo --> */}
             <section class="footer-brand">
             <a href="/" class="logo">
@@ -43,7 +42,7 @@ export default function Footer({ className = "", ...props }) {
                 <li><a href="https://facebook.com/littlelemon"
                     target="_blank" rel="noopener noreferrer">Facebook</a></li>
                 <li><a href="https://x.com/littlelemon"
-                    target="_blank" rel="noopener noreferrer">X (Twitter)</a></li>
+                    target="_blank" rel="noopener noreferrer">Twitter</a></li>
             </ul>
             </nav>
         </div>
