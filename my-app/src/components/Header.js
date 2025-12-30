@@ -7,6 +7,7 @@ export default function Header() {
             <a href="/" className="logo">
                 <img
                 src="/Images/Logo.svg"    // put your logo in /public
+                className="headerlogo"
                 alt="Little Lemon"
                 width="140"
                 height="auto"

@@ -5,7 +5,7 @@ export default function Footer() {
             {/* <!-- Brand / logo --> */}
             <section class="footer-brand">
             <a href="/" class="logo">
-                <img src="/images/Logo.svg" alt="Little Lemon" width="120" height="120" />
+                <img src="/images/Logo 1.png" alt="Little Lemon"/>
             </a>
             </section>
 
