@@ -1,27 +1,40 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function BookingForm({ availableTimes, dispatch, submitForm }) {
   const [date, setDate] = useState("");
-  const [time, setTime] = useState(availableTimes[0] || "");
+  const [time, setTime] = useState("");
   const [guests, setGuests] = useState(1);
   const [occasion, setOccasion] = useState("Birthday");
+  
+  // New state to track if the user has interacted with the guests field
+  const [guestsTouched, setGuestsTouched] = useState(false);
+
+  const today = new Date().toISOString().split("T")[0];
+
+  // Logic to determine if guest count is currently invalid
+  const isGuestsInvalid = guests < 1 || guests > 10;
+
+  useEffect(() => {
+    if (availableTimes.length > 0 && !availableTimes.includes(time)) {
+      setTime(availableTimes[0]);
+    }
+  }, [availableTimes, time]);
+
+  const getIsFormValid = () => {
+    return date !== "" && time !== "" && !isGuestsInvalid;
+  };
 
   function handleDateChange(e) {
     const selectedDate = e.target.value;
     setDate(selectedDate);
-
-    // Dispatch state change with the newly selected date (per instructions)
     dispatch({ type: "UPDATE_TIMES", date: selectedDate });
   }
 
   function handleSubmit(e) {
     e.preventDefault();
-     submitForm({
-      date,
-      time,
-      guests,
-      occasion,
-    });
+    if (getIsFormValid()) {
+      submitForm({ date, time, guests, occasion });
+    }
   }
 
   return (
@@ -35,6 +48,7 @@ export default function BookingForm({ availableTimes, dispatch, submitForm }) {
         id="res-date"
         value={date}
         onChange={handleDateChange}
+        min={today}
         required
       />
 
@@ -46,21 +60,29 @@ export default function BookingForm({ availableTimes, dispatch, submitForm }) {
         required
       >
         {availableTimes.map((t) => (
-          <option key={t} value={t}>
-            {t}
-          </option>
+          <option key={t} value={t}>{t}</option>
         ))}
       </select>
 
-      <label htmlFor="guests">Number of guests</label>
-      <input
-        type="number"
-        id="guests"
-        min="1"
-        max="10"
-        value={guests}
-        onChange={(e) => setGuests(Number(e.target.value))}
-      />
+        <label htmlFor="guests">Number of guests</label>
+        <div>
+        <input
+          type="number"
+          id="guests"
+          min="1"
+          max="10"
+          value={guests}
+          onChange={(e) => setGuests(Number(e.target.value))}
+          onBlur={() => setGuestsTouched(true)} // Set touched on unfocus
+          style={{ border: guestsTouched && isGuestsInvalid ? "2px solid red" : "" }}
+        />
+        {/* Conditional Error Message */}
+        {guestsTouched && isGuestsInvalid && (
+          <p style={{ color: "red", fontSize: "12px", marginTop: "5px" }}>
+            Please enter between 1 and 10 guests.
+          </p>
+        )}
+        </div>
 
       <label htmlFor="occasion">Occasion</label>
       <select
@@ -72,7 +94,12 @@ export default function BookingForm({ availableTimes, dispatch, submitForm }) {
         <option value="Anniversary">Anniversary</option>
       </select>
 
-      <input type="submit" value="Make Your reservation" />
+      <input 
+        type="submit" 
+        value="Make Your reservation" 
+        disabled={!getIsFormValid()}
+        aria-label="On Click"
+      />
     </form>
   );
 }
