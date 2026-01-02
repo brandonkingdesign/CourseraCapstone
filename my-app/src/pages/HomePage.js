@@ -1,29 +1,29 @@
 const specials = [
-  { title: "Greek salad", price: "$12.99", source:"/Images/greek salad.jpg", desc: "The famous greek salad of crispy lettuce, peppers, olives and our Chicago style feta cheese, garnished with crunchy garlic and rosemary croutons." },
-  { title: "Bruschetta", price: "$5.99", source:"/Images/bruchetta.svg", desc: "Our Bruschetta is made from grilled bread that has been smeared with garlic and seasoned with salt and olive oil." },
-  { title: "Lemon Dessert", price: "$5.00", source:"/Images/lemon dessert.jpg", desc: "This comes straight from grandma's recipe book, every last ingredient has been sourced and is as authentic as can be imagined." },
+  { title: "Greek salad", price: "$12.99", source:"/images/greek salad.jpg", desc: "The famous greek salad of crispy lettuce, peppers, olives and our Chicago style feta cheese, garnished with crunchy garlic and rosemary croutons." },
+  { title: "Bruschetta", price: "$5.99", source:"/images/bruchetta.svg", desc: "Our Bruschetta is made from grilled bread that has been smeared with garlic and seasoned with salt and olive oil." },
+  { title: "Lemon Dessert", price: "$5.00", source:"/images/lemon dessert.jpg", desc: "This comes straight from grandma's recipe book, every last ingredient has been sourced and is as authentic as can be imagined." },
 ];
 
 const testimonials = [
   {
     name: "Maria S.",
     text: "The food was absolutely incredible. Best Mediterranean restaurant in Chicago!",
-    image: "/Images/avatar1.avif"
+    image: "/images/avatar1.avif"
   },
   {
     name: "James L.",
     text: "Great atmosphere and friendly staff. The bruschetta was my favorite.",
-    image: "/Images/avatar4.jpeg"
+    image: "/images/avatar4.jpeg"
   },
   {
     name: "Aisha K.",
     text: "Authentic flavors and generous portions. We’ll definitely be back.",
-    image: "/Images/avatar3.webp"
+    image: "/images/avatar3.webp"
   },
   {
     name: "Daniel R.",
     text: "Loved the lemon dessert and the cozy vibe. Highly recommend!",
-    image: "/Images/avatar2.avif"
+    image: "/images/avatar2.avif"
   },
 ];
 
@@ -44,7 +44,7 @@ export default function Main() {
 
           <div className="hero-media">
             <img
-                src="/Images/restauranfood.jpg"
+                src="/images/restauranfood.jpg"
                 alt="Chef presenting Mediterranean dishes"
                 className="hero-img"
             />
@@ -131,10 +131,10 @@ export default function Main() {
 
           <div className="about-media" aria-label="Restaurant images">
             <div className="img-a">
-                <img src="/Images/restaurant chef B.jpg" />
+                <img src="/images/restaurant chef B.jpg" />
             </div>
             <div className="img-b">
-                <img src="/Images/Mario and Adrian A.jpg" />
+                <img src="/images/Mario and Adrian A.jpg" />
             </div>
           </div>
         </div>

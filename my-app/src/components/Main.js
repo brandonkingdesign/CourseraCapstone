@@ -12,13 +12,11 @@ import LoginPage from "../pages/LoginPage";
 import ConfirmedBooking from "../pages/ConfirmedBooking";
 
 
-
-// 1) initializeTimes: initial available times for today's date
 export function initializeTimes() {
   return fetchAPI(new Date());
 }
 
-// 2) updateTimes: reducer updates available times based on selected date
+
 export function updateTimes(state, action) {
   return fetchAPI(new Date(action.date));
 }
